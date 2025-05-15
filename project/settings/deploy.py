@@ -111,6 +111,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Extra places for collectstatic to find static files - simpler approach
 STATICFILES_DIRS = []
 
+# Media files (Uploaded images)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')
+
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, "locale"),
 )

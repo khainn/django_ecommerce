@@ -5,7 +5,7 @@ from apps.ecommerce.models import Cart, CartItem, Product
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ['id', 'name', 'price', 'image_url', 'quantity_in_stock']
+        fields = ['id', 'name', 'price', 'image', 'quantity_in_stock']
 
 
 class CartItemSerializer(serializers.ModelSerializer):

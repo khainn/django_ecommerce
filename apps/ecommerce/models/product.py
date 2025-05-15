@@ -1,6 +1,24 @@
 from django.db import models
+from django.core.exceptions import ValidationError
+from django.utils.text import slugify
+import os
+import uuid
 
 from common.models import BaseModel
+
+
+def validate_image_size(image):
+    """Validate image size is less than 2MB"""
+    if image.size > 2 * 1024 * 1024:  # 2MB
+        raise ValidationError("Image size must be less than 2MB")
+
+
+def product_image_path(instance, filename):
+    """Generate file path for product image with slugified name"""
+    ext = filename.split('.')[-1]
+    slug_name = slugify(instance.name)
+    unique_id = str(uuid.uuid4())[:8]
+    return f'products/{slug_name}-{unique_id}.{ext}'
 
 
 class ProductCategory(BaseModel):
@@ -23,7 +41,7 @@ class Product(BaseModel):
     description = models.TextField(blank=True, default="")
     price = models.IntegerField()
     quantity_in_stock = models.IntegerField()
-    image_url = models.CharField(max_length=255, blank=True, default="")
+    image = models.ImageField(upload_to=product_image_path, blank=True, null=True, validators=[validate_image_size])
     total_sold = models.IntegerField(default=0)
     excerpt = models.TextField(blank=True, default="")
     content = models.TextField(blank=True, default="")

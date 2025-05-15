@@ -37,6 +37,18 @@ class ProductAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'price', 'quantity_in_stock', 'total_sold', 'category', 'created_at')
     list_filter = ('category', 'created_at')
     search_fields = ('name', 'description')
+    readonly_fields = ('image_preview',)
+    fields = ('name', 'description', 'price', 'quantity_in_stock', 'category', 
+              'image', 'image_preview', 'excerpt', 'content')
+    
+    def image_preview(self, obj):
+        """Display image preview in admin"""
+        if obj.image:
+            return f'<img src="{obj.image.url}" width="150" />'
+        return 'No image'
+    
+    image_preview.short_description = 'Image Preview'
+    image_preview.allow_tags = True
 
 class CartItemInline(admin.TabularInline):
     model = CartItem

@@ -48,7 +48,7 @@ class ProductListAPIView(APIView):
         response = ProductListResponse({
             'count': products_query.count(),
             'products': products_query
-        })
+        }, context={'request': request})
         return Response(response.data)
 
 
@@ -64,7 +64,7 @@ class ProductDetailAPIView(APIView):
         if not product:
             raise BadRequest(404000, error_detail="Product not found")
         
-        response = ProductDetailResponse(product)
+        response = ProductDetailResponse(product, context={'request': request})
         return Response(response.data)
 
 
@@ -89,5 +89,5 @@ class CategoryListAPIView(APIView):
         response = CategoryListResponse({
             'count': categories_query.count(),
             'categories': categories_query
-        })
+        }, context={'request': request})
         return Response(response.data)
