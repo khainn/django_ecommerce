@@ -8,7 +8,6 @@ fi
 worker=${WORKER:-1}
 port=${DJANGO_PORT:-8080}
 
-pip install --upgrade pip
 python scripts/collect_static.py
 python manage.py migrate
 python manage.py loaddata scripts/fixtures/*

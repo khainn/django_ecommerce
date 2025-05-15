@@ -9,9 +9,16 @@ BASE_DIR = Path(__file__).parent.parent.parent.absolute()
 SECRET_KEY = config('DJANGO_SECRET_KEY', cast=str)
 JWT_TOKEN_EXPIRE_HOURS = config('JWT_TOKEN_EXPIRE_HOURS', cast=int, default=1)
 JWT_REFRESH_TOKEN_EXPIRE_DAYS = config('JWT_REFRESH_TOKEN_EXPIRE_DAYS', cast=int, default=1)
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["django-ecommerce-lhsn.onrender.com"]
+CSRF_TRUSTED_ORIGINS = ["https://django-ecommerce-lhsn.onrender.com"]
 
+# Use this setting for allowing all origins in CORS
 CORS_ALLOW_ALL_ORIGINS = True
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_SSL_REDIRECT = True
 CORS_EXPOSE_HEADERS = ['Content-Disposition']
 
 INSTALLED_APPS = [
@@ -31,12 +38,12 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.locale.LocaleMiddleware',
 ]
