@@ -1,0 +1,43 @@
+version: '3.7'
+
+services:
+  postgres-test:
+    container_name: postgres-test
+    image: postgres:13-alpine
+    env_file:
+      - .env
+    environment:
+      - 'POSTGRES_DB=${DATABASE_NAME}'
+      - 'POSTGRES_USER=${DATABASE_USER}'
+      - 'POSTGRES_PASSWORD=${DATABASE_PASSWORD}'
+    ports:
+      - '${DATABASE_PORT}:5432'
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -d ${DATABASE_NAME} -U ${DATABASE_USER}" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - ./tmp/postgres-test:/var/lib/postgresql/data
+    networks:
+      - proxy-net-test
+
+  webapi-test:
+    container_name: webapi-test
+    build:
+      context: .
+      target: backenddev
+    env_file:
+      - .env
+    ports:
+      - '${DJANGO_PORT}:${DJANGO_PORT}'
+    volumes:
+      - ./:/app
+    depends_on:
+      postgres-test:
+        condition: service_started
+    networks:
+      - proxy-net-test
+networks:
+  proxy-net-test:
+    name: internal_network_for_test

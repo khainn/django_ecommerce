@@ -1,0 +1,144 @@
+# Products
+- model: ecommerce.Product
+  pk: 8a23851b-c6e7-4277-9eb9-88a1f064710c
+  fields:
+    name: Vải thiều Lục Ngạn
+    description: Vải thiều Lục Ngạn nổi tiếng với hương vị thơm ngon đặc trưng, quả to, cùi dày, hạt nhỏ. Đây là loại trái cây đặc sản nổi tiếng của Lục Ngạn, Bắc Giang.
+    price: 60000
+    quantity_in_stock: 100
+    image_url: https://dacsanlucngan.com/wp-content/uploads/2019/01/vai-thieu-luc-ngan.jpg
+    total_sold: 0
+    excerpt: Vải thiều Lục Ngạn - Đặc sản nổi tiếng của Bắc Giang
+    content: |
+      Vải thiều Lục Ngạn là một đặc sản nổi tiếng của tỉnh Bắc Giang, đặc biệt là huyện Lục Ngạn. Đây là loại trái cây có giá trị kinh tế cao và được nhiều người tiêu dùng trong và ngoài nước ưa chuộng.
+      
+      Vải thiều Lục Ngạn có đặc điểm nổi bật là quả to, cùi dày, hạt nhỏ, vị ngọt đậm đà và hương thơm đặc trưng. Vỏ quả có màu đỏ tươi khi chín, thịt quả trắng trong, giòn và mọng nước.
+    category: fac7d749-66d1-4fc9-9765-15bf6c0a25a6
+    created_at: 2024-05-15 09:00:00.000Z
+    updated_at: 2024-05-15 09:00:00.000Z
+
+- model: ecommerce.Product
+  pk: 5c5f9b97-7b2e-4087-9b50-32f5575d966d
+  fields:
+    name: Nhãn lồng Lục Ngạn
+    description: Nhãn lồng Lục Ngạn có màu vàng sáng, cùi dày, vị ngọt thanh. Là một trong những loại trái cây đặc sản của Lục Ngạn được nhiều người yêu thích.
+    price: 70000
+    quantity_in_stock: 80
+    image_url: https://dacsanlucngan.com/wp-content/uploads/2019/01/nhan-long-luc-ngan.jpg
+    total_sold: 0
+    excerpt: Nhãn lồng Lục Ngạn - Trái cây đặc sản thơm ngon
+    content: |
+      Nhãn lồng Lục Ngạn là một trong những đặc sản nổi tiếng của vùng đất Lục Ngạn, Bắc Giang. Loại trái cây này được trồng trên những đồi núi với thổ nhưỡng và khí hậu đặc biệt.
+      
+      Nhãn lồng có đặc điểm là quả to tròn, vỏ màu vàng nâu, cùi dày, vị ngọt đậm đà và hương thơm đặc trưng. Thịt quả trắng trong, giòn và mọng nước, hạt nhỏ.
+    category: fac7d749-66d1-4fc9-9765-15bf6c0a25a6
+    created_at: 2024-05-15 09:10:00.000Z
+    updated_at: 2024-05-15 09:10:00.000Z
+
+- model: ecommerce.Product
+  pk: c9b5a1d7-9856-40f8-8610-0b2d59c52f3d
+  fields:
+    name: Cam sành Lục Ngạn
+    description: Cam sành Lục Ngạn có vỏ sần, màu xanh đậm, múi cam màu vàng cam, vị ngọt chua hài hòa và rất thơm. Đây là loại cam đặc sản của vùng Lục Ngạn.
+    price: 45000
+    quantity_in_stock: 120
+    image_url: https://dacsanlucngan.com/wp-content/uploads/2019/01/cam-sanh-luc-ngan.jpg
+    total_sold: 0
+    excerpt: Cam sành Lục Ngạn - Vị ngọt chua hài hòa
+    content: |
+      Cam sành Lục Ngạn là một loại quả đặc sản nổi tiếng của vùng đất Lục Ngạn, Bắc Giang. Loại cam này được trồng trên những đồi núi với thổ nhưỡng và khí hậu đặc biệt.
+      
+      Cam sành có đặc điểm là vỏ dày, sần sùi, màu xanh đậm. Khi chín, múi cam có màu vàng cam, mọng nước, vị ngọt chua hài hòa và hương thơm đặc trưng.
+    category: fac7d749-66d1-4fc9-9765-15bf6c0a25a6
+    created_at: 2024-05-15 09:20:00.000Z
+    updated_at: 2024-05-15 09:20:00.000Z
+
+- model: ecommerce.Product
+  pk: 7d6e9f82-cf61-48f0-a322-2b0736e0b941
+  fields:
+    name: Bưởi da xanh Lục Ngạn
+    description: Bưởi da xanh Lục Ngạn có vỏ màu xanh, múi màu hồng đỏ, vị ngọt thanh, ít hạt. Đây là một trong những đặc sản nổi tiếng của vùng Lục Ngạn.
+    price: 80000
+    quantity_in_stock: 70
+    image_url: https://dacsanlucngan.com/wp-content/uploads/2019/01/buoi-da-xanh-luc-ngan.jpg
+    total_sold: 0
+    excerpt: Bưởi da xanh Lục Ngạn - Đặc sản ngọt thanh
+    content: |
+      Bưởi da xanh Lục Ngạn là một loại quả đặc sản nổi tiếng của vùng đất Lục Ngạn, Bắc Giang. Loại bưởi này được trồng với kỹ thuật canh tác đặc biệt.
+      
+      Bưởi da xanh có đặc điểm là vỏ có màu xanh, khi bóc ra, múi bưởi có màu hồng đỏ rất đẹp mắt. Múi bưởi mọng nước, vị ngọt thanh, ít hạt và có hương thơm đặc trưng.
+    category: fac7d749-66d1-4fc9-9765-15bf6c0a25a6
+    created_at: 2024-05-15 09:30:00.000Z
+    updated_at: 2024-05-15 09:30:00.000Z
+
+- model: ecommerce.Product
+  pk: 4e2a58d3-17b9-4b6e-9d8c-cd1c5f8149b7
+  fields:
+    name: Chè Lục Ngạn
+    description: Chè Lục Ngạn có hương thơm đặc trưng, vị đậm đà, làm từ những búp chè tươi được thu hái từ đồi chè Lục Ngạn nổi tiếng.
+    price: 150000
+    quantity_in_stock: 50
+    image_url: https://dacsanlucngan.com/wp-content/uploads/2019/01/che-luc-ngan.jpg
+    total_sold: 0
+    excerpt: Chè Lục Ngạn - Hương vị đậm đà từ đồi chè xanh
+    content: |
+      Chè Lục Ngạn là một đặc sản nổi tiếng của vùng đất Lục Ngạn, Bắc Giang. Chè được trồng trên những đồi núi với thổ nhưỡng và khí hậu đặc biệt.
+      
+      Chè Lục Ngạn nổi tiếng với hương thơm đặc trưng và vị đậm đà khó quên. Chè được làm từ những búp chè tươi, được thu hái cẩn thận và chế biến theo phương pháp truyền thống.
+    category: 28bf9431-ceee-4d8d-a6d7-e48dac44329a
+    created_at: 2024-05-15 09:40:00.000Z
+    updated_at: 2024-05-15 09:40:00.000Z
+
+- model: ecommerce.Product
+  pk: 2b4f9c68-3e0a-4d12-9c1f-8a5f8e7a6d5b
+  fields:
+    name: Mật ong rừng Lục Ngạn
+    description: Mật ong rừng Lục Ngạn được khai thác từ rừng tự nhiên, có màu vàng đậm, vị ngọt đặc trưng, nhiều dưỡng chất tốt cho sức khỏe.
+    price: 220000
+    quantity_in_stock: 30
+    image_url: https://dacsanlucngan.com/wp-content/uploads/2019/01/mat-ong-rung-luc-ngan.jpg
+    total_sold: 0
+    excerpt: Mật ong rừng Lục Ngạn - Tinh túy từ thiên nhiên
+    content: |
+      Mật ong rừng Lục Ngạn là một đặc sản quý hiếm của vùng đất Lục Ngạn, Bắc Giang. Loại mật ong này được khai thác từ những khu rừng tự nhiên, nơi ong lấy phấn hoa từ nhiều loại hoa dại và cây thuốc.
+      
+      Mật ong rừng Lục Ngạn có màu vàng đậm, vị ngọt đặc trưng và chứa nhiều dưỡng chất quý giá cho sức khỏe. Sản phẩm được khai thác và đóng gói theo phương pháp truyền thống, đảm bảo giữ nguyên giá trị dinh dưỡng.
+    category: 7a9e13f7-d12a-4c3d-a0d3-9f4b98f0de5f
+    created_at: 2024-05-15 09:50:00.000Z
+    updated_at: 2024-05-15 09:50:00.000Z
+
+- model: ecommerce.Product
+  pk: 1a3e5d7f-9b1c-4d3e-8f6a-2c5b4d7e9a1c
+  fields:
+    name: Gạo nếp Lục Ngạn
+    description: Gạo nếp Lục Ngạn nổi tiếng với độ dẻo, thơm và ngọt đặc trưng. Được trồng theo phương pháp canh tác truyền thống của người dân Lục Ngạn.
+    price: 40000
+    quantity_in_stock: 150
+    image_url: https://dacsanlucngan.com/wp-content/uploads/2019/01/gao-nep-luc-ngan.jpg
+    total_sold: 0
+    excerpt: Gạo nếp Lục Ngạn - Hạt gạo thơm dẻo
+    content: |
+      Gạo nếp Lục Ngạn là một đặc sản nổi tiếng của vùng đất Lục Ngạn, Bắc Giang. Gạo được trồng trên những thửa ruộng bậc thang với nguồn nước trong lành và phương pháp canh tác truyền thống.
+      
+      Gạo nếp Lục Ngạn nổi tiếng với độ dẻo, thơm và ngọt đặc trưng. Khi nấu chín, gạo có màu trắng ngà, hạt dẻo, thơm và ngọt tự nhiên, rất thích hợp để làm xôi hoặc các món bánh truyền thống.
+    category: 3c6849d5-8b12-4d45-b55d-83ae4ade89e9
+    created_at: 2024-05-15 10:00:00.000Z
+    updated_at: 2024-05-15 10:00:00.000Z
+
+- model: ecommerce.Product
+  pk: 1f67d7ae-9719-45e4-be79-953f8ee182b3
+  fields:
+    name: Quýt Lục Ngạn
+    description: Quýt Lục Ngạn có vỏ mỏng, màu vàng cam đẹp mắt, múi mọng nước, vị ngọt thanh. Là loại quả đặc sản của vùng Lục Ngạn.
+    price: 55000
+    quantity_in_stock: 90
+    image_url: https://dacsanlucngan.com/wp-content/uploads/2019/01/quyt-luc-ngan.jpg
+    total_sold: 0
+    excerpt: Quýt Lục Ngạn - Trái ngọt thanh mát
+    content: |
+      Quýt Lục Ngạn là một loại quả đặc sản nổi tiếng của vùng đất Lục Ngạn, Bắc Giang. Loại quýt này được trồng trên những đồi núi với thổ nhưỡng và khí hậu đặc biệt.
+      
+      Quýt Lục Ngạn có đặc điểm là vỏ mỏng, màu vàng cam đẹp mắt. Múi quýt mọng nước, vị ngọt thanh và hương thơm đặc trưng. Quýt Lục Ngạn không chỉ ngon mà còn chứa nhiều vitamin C và các chất chống oxy hóa tốt cho sức khỏe.
+    category: fac7d749-66d1-4fc9-9765-15bf6c0a25a6
+    created_at: 2024-05-15 10:10:00.000Z
+    updated_at: 2024-05-15 10:10:00.000Z

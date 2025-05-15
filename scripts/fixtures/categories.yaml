@@ -1,0 +1,32 @@
+# Product Categories
+- model: ecommerce.ProductCategory
+  pk: fac7d749-66d1-4fc9-9765-15bf6c0a25a6
+  fields:
+    name: Fruits
+    description: Fresh and delicious fruits from Luc Ngan region
+    created_at: 2024-05-10 08:00:00.000Z
+    updated_at: 2024-05-10 08:00:00.000Z
+
+- model: ecommerce.ProductCategory
+  pk: 28bf9431-ceee-4d8d-a6d7-e48dac44329a
+  fields:
+    name: Tea
+    description: High-quality tea products from Luc Ngan
+    created_at: 2024-05-10 08:05:00.000Z
+    updated_at: 2024-05-10 08:05:00.000Z
+
+- model: ecommerce.ProductCategory
+  pk: 7a9e13f7-d12a-4c3d-a0d3-9f4b98f0de5f
+  fields:
+    name: Honey
+    description: Natural honey products from Luc Ngan forests
+    created_at: 2024-05-10 08:10:00.000Z
+    updated_at: 2024-05-10 08:10:00.000Z
+
+- model: ecommerce.ProductCategory
+  pk: 3c6849d5-8b12-4d45-b55d-83ae4ade89e9
+  fields:
+    name: Rice
+    description: Traditional rice varieties from Luc Ngan region
+    created_at: 2024-05-10 08:15:00.000Z
+    updated_at: 2024-05-10 08:15:00.000Z

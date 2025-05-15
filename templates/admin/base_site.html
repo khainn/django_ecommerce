@@ -1,0 +1,24 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+{% block userlinks %}
+    {% if site_url %}
+        <a href="{{ admin_site_url|default:site_url }}">{% translate admin_view_site_text|default:'View site' %}</a> /
+    {% endif %}
+    {% if user.is_active and user.is_staff %}
+        {% url 'admin:password_change' as password_change_url %}
+        {% if password_change_url %}
+            <a href="{{ password_change_url }}">
+        {% else %}
+            <a href="{{ root_path }}password_change/">
+        {% endif %}
+        {% translate 'Change password' %}</a> /
+    {% endif %}
+    {% url 'admin:logout' as logout_url %}
+    {% if logout_url %}
+        <a href="{{ logout_url }}">
+    {% else %}
+        <a href="{{ root_path }}logout/">
+    {% endif %}
+    {% translate 'Log out' %}</a>
+{% endblock %} 

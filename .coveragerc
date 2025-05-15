@@ -1,0 +1,15 @@
+[run]
+branch = True
+omit =
+    */apps.py
+source = .
+
+[report]
+ignore_errors = True
+omit =
+    */apps.py
+    */models.py
+    */tests/*
+
+[html]
+directory = coverage_html

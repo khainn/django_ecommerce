@@ -1,0 +1,46 @@
+version: '3.7'
+
+services:
+  postgres-prod:
+    container_name: postgres-prod
+    image: postgres:13-alpine
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - 'POSTGRES_DB=${DATABASE_NAME}'
+      - 'POSTGRES_USER=${DATABASE_USER}'
+      - 'POSTGRES_PASSWORD=${DATABASE_PASSWORD}'
+    ports:
+      - '${DATABASE_PORT}:5432'
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -d ${DATABASE_NAME} -U ${DATABASE_USER}" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - ./tmp/postgres-prod:/var/lib/postgresql/data
+    networks:
+      - proxy-net-prod
+
+  webapi-prod:
+    container_name: webapi-prod
+    restart: always
+    build:
+      context: .
+      target: backenddeploy
+    env_file:
+      - .env
+    ports:
+      - '${DJANGO_PORT}:${DJANGO_PORT}'
+    volumes:
+      - ./:/app
+    depends_on:
+      postgres-prod:
+        condition: service_healthy
+    networks:
+      - proxy-net-prod
+
+networks:
+  proxy-net-prod:
+    name: internal_network_for_prod
