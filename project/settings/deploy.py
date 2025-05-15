@@ -9,7 +9,7 @@ BASE_DIR = Path(__file__).parent.parent.parent.absolute()
 SECRET_KEY = config('DJANGO_SECRET_KEY', cast=str)
 JWT_TOKEN_EXPIRE_HOURS = config('JWT_TOKEN_EXPIRE_HOURS', cast=int, default=1)
 JWT_REFRESH_TOKEN_EXPIRE_DAYS = config('JWT_REFRESH_TOKEN_EXPIRE_DAYS', cast=int, default=1)
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '0.0.0.0']
+ALLOWED_HOSTS = ['*']
 
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_EXPOSE_HEADERS = ['Content-Disposition']
