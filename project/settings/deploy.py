@@ -13,6 +13,7 @@ ALLOWED_HOSTS = ["django-ecommerce-lhsn.onrender.com"]
 CSRF_TRUSTED_ORIGINS = ["https://django-ecommerce-lhsn.onrender.com"]
 
 # Use this setting for allowing all origins in CORS
+APPEND_SLASH = True
 CORS_ALLOW_ALL_ORIGINS = True
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
@@ -20,6 +21,7 @@ SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_SSL_REDIRECT = True
 CORS_EXPOSE_HEADERS = ['Content-Disposition']
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
