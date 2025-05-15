@@ -31,7 +31,7 @@ def collect_static():
         if is_production:
             try:
                 import whitenoise
-                print(f"WhiteNoise version {whitenoise.__version__} is installed for serving static files in production.")
+                print(f"WhiteNoise  is installed for serving static files in production.")
             except ImportError:
                 print("WARNING: WhiteNoise is not installed. Static files may not be served correctly in production.")
                 print("Install WhiteNoise with: pip install whitenoise")
