@@ -1,18 +1,18 @@
 from django.db import models
 
-from common.models import BaseModel
 from apps.ecommerce.models.product import Product
+from common.models import BaseModel
 
 
 class Cart(BaseModel):
     """Shopping cart model"""
     # BaseModel already provides id, created_at, and updated_at fields
-    
+
     class Meta(BaseModel.Meta):
         db_table = "ecommerce_carts"
         verbose_name = "Cart"
         verbose_name_plural = "Carts"
-    
+
     def __str__(self):
         return f"Cart {self.id}"
 
@@ -20,23 +20,23 @@ class Cart(BaseModel):
 class CartItem(BaseModel):
     """Shopping cart item model"""
     quantity = models.IntegerField()
-    
+
     # Foreign keys
     cart = models.ForeignKey(
-        Cart, 
+        Cart,
         on_delete=models.CASCADE,
         related_name="items"
     )
     product = models.ForeignKey(
-        Product, 
+        Product,
         on_delete=models.CASCADE,
         related_name="cart_items"
     )
-    
+
     class Meta(BaseModel.Meta):
         db_table = "ecommerce_cart_items"
         verbose_name = "Cart Item"
         verbose_name_plural = "Cart Items"
-    
+
     def __str__(self):
-        return f"{self.quantity} x {self.product.name} in cart {self.cart.id}" 
+        return f"{self.quantity} x {self.product.name} in cart {self.cart.id}"

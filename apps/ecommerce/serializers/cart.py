@@ -1,20 +1,21 @@
 from rest_framework import serializers
-from apps.ecommerce.models import Cart, CartItem, Product
+
+from apps.ecommerce.models import CartItem, Product
 
 
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ['id', 'name', 'price', 'image', 'quantity_in_stock']
+        fields = ["id", "name", "price", "image", "quantity_in_stock"]
 
 
 class CartItemSerializer(serializers.ModelSerializer):
     product = ProductSerializer(read_only=True)
-    
+
     class Meta:
         model = CartItem
-        fields = ['id', 'product', 'quantity']
-        read_only_fields = ['id']
+        fields = ["id", "product", "quantity"]
+        read_only_fields = ["id"]
 
 
 class CartDetailRequest(serializers.Serializer):
@@ -26,4 +27,4 @@ class CartDetailResponse(serializers.Serializer):
     created_at = serializers.DateTimeField()
     updated_at = serializers.DateTimeField()
     items = CartItemSerializer(many=True)
-    total_price = serializers.IntegerField() 
+    total_price = serializers.IntegerField()

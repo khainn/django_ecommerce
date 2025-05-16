@@ -1,0 +1,144 @@
+# Blogs
+- model: ecommerce.Blog
+  pk: 7c17bdfc-d556-434e-a924-c754a8536105
+  fields:
+    title: Vải thiều Lục Ngạn - Đặc sản nổi tiếng của Bắc Giang
+    slug: vai-thieu-luc-ngan
+    author: Admin
+    date: 2023-05-10
+    image: blogs/vai-thieu-luc-ngan.jpg
+    excerpt: Tìm hiểu về loại trái cây đặc sản nổi tiếng của huyện Lục Ngạn, tỉnh Bắc Giang - Vải thiều Lục Ngạn.
+    content: |
+      # Vải thiều Lục Ngạn - Đặc sản nổi tiếng của Bắc Giang
+
+      Vải thiều Lục Ngạn là một đặc sản nổi tiếng của tỉnh Bắc Giang, đặc biệt là huyện Lục Ngạn. Đây là loại trái cây có giá trị kinh tế cao và được nhiều người tiêu dùng trong và ngoài nước ưa chuộng.
+
+      ## Đặc điểm của vải thiều Lục Ngạn
+
+      Vải thiều Lục Ngạn có đặc điểm nổi bật là quả to, cùi dày, hạt nhỏ, vị ngọt đậm đà và hương thơm đặc trưng. Vỏ quả có màu đỏ tươi khi chín, thịt quả trắng trong, giòn và mọng nước.
+
+      ## Mùa vụ và canh tác
+
+      Mùa vải thiều Lục Ngạn thường bắt đầu từ tháng 5 đến tháng 7 hàng năm, với cao điểm vào tháng 6. Cây vải được trồng trên đồi núi của huyện Lục Ngạn với khí hậu và thổ nhưỡng phù hợp, tạo nên hương vị đặc trưng không thể nhầm lẫn.
+
+      ## Giá trị dinh dưỡng
+
+      Vải thiều không chỉ thơm ngon mà còn chứa nhiều dưỡng chất có lợi cho sức khỏe như vitamin C, chất chống oxy hóa, và các khoáng chất cần thiết. Đây là loại trái cây tốt cho việc tăng cường miễn dịch, cải thiện tiêu hóa và làm đẹp da.
+
+      ## Các sản phẩm chế biến từ vải thiều
+
+      Ngoài việc ăn tươi, vải thiều Lục Ngạn còn được chế biến thành nhiều sản phẩm khác như:
+      * Vải thiều sấy khô
+      * Rượu vải
+      * Mứt vải
+      * Nước ép vải
+      * Kem vải
+      
+      ## Du lịch mùa vải thiều
+      
+      Mỗi năm vào mùa vải chín, Lục Ngạn đón hàng nghìn du khách đến tham quan, trải nghiệm thu hoạch và thưởng thức vải thiều tại vườn. Đây là hoạt động du lịch đặc sắc, góp phần quảng bá hình ảnh và đặc sản của địa phương.
+      
+      Vải thiều Lục Ngạn không chỉ là một loại trái cây ngon mà còn là niềm tự hào của người dân Bắc Giang. Nếu bạn chưa từng thưởng thức, hãy tìm mua và cảm nhận hương vị đặc biệt của loại quả này nhé!
+    created_at: 2023-05-10 09:00:00.000Z
+    updated_at: 2023-05-10 09:00:00.000Z
+
+- model: ecommerce.Blog
+  pk: a1e93f7b-1c25-4b8a-96d8-ea8d56732a9c
+  fields:
+    title: Khám phá vùng đất Lục Ngạn - Thiên đường trái cây của miền Bắc
+    slug: kham-pha-vung-dat-luc-ngan
+    author: Admin
+    date: 2023-06-15
+    image: blogs/kham-pha-vung-dat-luc-ngan.jpg
+    excerpt: Cùng khám phá vùng đất Lục Ngạn - nơi được mệnh danh là thiên đường trái cây của miền Bắc với đa dạng các loại trái cây đặc sản.
+    content: |
+      # Khám phá vùng đất Lục Ngạn - Thiên đường trái cây của miền Bắc
+      
+      Lục Ngạn, một huyện miền núi của tỉnh Bắc Giang, được biết đến như một thiên đường trái cây của miền Bắc Việt Nam. Với diện tích trồng cây ăn quả lớn và đa dạng, nơi đây cung cấp nhiều loại trái cây đặc sản nổi tiếng khắp cả nước.
+      
+      ## Vị trí địa lý và khí hậu
+      
+      Lục Ngạn nằm ở phía đông bắc tỉnh Bắc Giang, có địa hình đồi núi trung bình, thấp dần về phía tây nam. Khí hậu nhiệt đới gió mùa với mùa đông lạnh, ít mưa và mùa hè nóng ẩm, mưa nhiều, rất thuận lợi cho việc phát triển các loại cây ăn quả.
+      
+      ## Đa dạng trái cây đặc sản
+      
+      Ngoài vải thiều nổi tiếng, Lục Ngạn còn là nơi sản xuất nhiều loại trái cây đặc sản khác:
+      
+      1. *Nhãn lồng*: Quả to, cùi dày, vị ngọt thanh
+      2. *Cam sành*: Vỏ sần, múi ngọt chua hài hòa
+      3. *Bưởi da xanh*: Vỏ xanh, múi đỏ hồng, ít hạt
+      4. *Quýt*: Vỏ mỏng, múi mọng nước, thơm ngọt
+      5. *Na dai*: Thịt quả trắng ngà, ít hạt, vị ngọt đậm đà
+      
+      ## Văn hóa và con người
+      
+      Người dân Lục Ngạn chủ yếu là người Kinh, Nùng, Tày và Cao Lan với nhiều phong tục tập quán đặc sắc. Họ cần cù, chịu khó và có nhiều kinh nghiệm trong việc canh tác cây ăn quả, đặc biệt là kỹ thuật ghép cải tạo giống và chăm sóc vải thiều.
+      
+      ## Du lịch sinh thái
+      
+      Với vẻ đẹp thiên nhiên và đặc sản nổi tiếng, Lục Ngạn đang phát triển mạnh về du lịch sinh thái và du lịch trải nghiệm:
+      Tham quan vườn trái cây
+      Trải nghiệm thu hoạch
+      Tìm hiểu quy trình sản xuất
+      Thưởng thức ẩm thực địa phương
+      
+      ## Phát triển bền vững
+      
+      Những năm gần đây, Lục Ngạn đã áp dụng nhiều tiến bộ khoa học kỹ thuật trong sản xuất nông nghiệp, đặc biệt là các mô hình VietGAP, hữu cơ, đảm bảo an toàn thực phẩm và phát triển bền vững.
+      
+      Lục Ngạn không chỉ đơn thuần là một vùng đất trồng cây ăn quả mà còn là nơi gìn giữ và phát huy những giá trị văn hóa đặc sắc của các dân tộc sinh sống tại đây. Nếu có dịp, hãy đến Lục Ngạn một lần để cảm nhận không khí trong lành, thưởng thức những trái cây ngon và tìm hiểu về cuộc sống của người dân nơi đây.
+    created_at: 2023-06-15 09:00:00.000Z
+    updated_at: 2023-06-15 09:00:00.000Z
+
+- model: ecommerce.Blog
+  pk: 3d5f2e1b-9c72-48a3-b7d9-1e6f4d5c3b2a
+  fields:
+    title: Chè Lục Ngạn - Hương vị đậm đà từ đồi chè xanh
+    slug: che-luc-ngan
+    author: Admin
+    date: 2023-07-20
+    image: blogs/che-luc-ngan.jpg
+    excerpt: Tìm hiểu về chè Lục Ngạn - loại đặc sản nổi tiếng với hương thơm đặc trưng và vị đậm đà từ những đồi chè xanh mướt.
+    content: |
+      # Chè Lục Ngạn - Hương vị đậm đà từ đồi chè xanh
+      
+      Bên cạnh những vườn vải thiều nổi tiếng, Lục Ngạn còn được biết đến với những đồi chè xanh mướt quanh năm. Chè Lục Ngạn là một đặc sản được nhiều người yêu thích bởi hương thơm đặc trưng và vị đậm đà khó quên.
+      
+      ## Lịch sử phát triển
+      
+      Cây chè được trồng ở Lục Ngạn từ rất lâu đời, gắn liền với đời sống văn hóa và kinh tế của người dân địa phương. Ban đầu chỉ là những vườn chè nhỏ phục vụ nhu cầu trong gia đình, dần dần phát triển thành các đồi chè rộng lớn, trở thành ngành kinh tế quan trọng của địa phương.
+      
+      ## Đặc điểm của chè Lục Ngạn
+      
+      Chè Lục Ngạn có đặc điểm là búp chè to, xanh đậm, nhiều lông tơ trắng. Khi chế biến, chè có màu xanh ngọc bích, nước vàng trong, hương thơm đặc trưng và vị chát nhẹ, hậu ngọt.
+      
+      ## Các loại chè đặc sản
+      
+      Ở Lục Ngạn có nhiều loại chè đặc sản, phổ biến nhất là:
+      
+      1. *Chè Shan tuyết*: Là giống chè cổ thụ mọc ở độ cao trên 1000m, có giá trị kinh tế cao
+      2. *Chè Trung du*: Phổ biến ở vùng đồi thấp, cho năng suất cao
+      3. *Chè Bát Tiên*: Chè thơm đặc biệt, được chế biến từ 8 loại lá khác nhau
+      
+      ## Quy trình chế biến
+      
+      Quy trình chế biến chè Lục Ngạn được thực hiện rất cẩn thận qua các bước:
+      
+      Thu hái: Chỉ hái những búp chè non (1 tôm 2 lá hoặc 1 tôm 3 lá)
+      Làm héo: Phơi héo tự nhiên hoặc sấy nhẹ
+      Vò chè: Làm dập tế bào để tạo hương
+      Ủ chè: Cho lên men một phần (với chè đen) hoặc ngăn sự lên men (với chè xanh)
+      Sao chè: Sấy khô với nhiệt độ phù hợp
+      Phân loại: Chọn lọc để đảm bảo chất lượng
+      
+      ## Giá trị dinh dưỡng và tác dụng
+      
+      Chè Lục Ngạn không chỉ thơm ngon mà còn chứa nhiều chất có lợi cho sức khỏe như polyphenol, catechin, caffeine, và các vitamin. Uống chè thường xuyên giúp giải nhiệt, tăng cường trao đổi chất, hỗ trợ giảm cân và phòng chống một số bệnh mãn tính.
+      
+      ## Văn hóa thưởng trà
+      
+      Thưởng thức chè Lục Ngạn là một nghệ thuật. Theo người dân địa phương, nước pha chè phải là nước suối hoặc nước giếng trong, nhiệt độ khoảng 85-90°C. Chỉ rót 2/3 chén và thưởng thức từ từ để cảm nhận hết hương vị.
+      
+      Chè Lục Ngạn không chỉ là đồ uống mà còn là nét văn hóa đặc sắc của vùng đất này. Nếu có dịp đến Lục Ngạn, đừng quên thưởng thức và mang về làm quà loại đặc sản này nhé!
+    created_at: 2023-07-20 09:00:00.000Z
+    updated_at: 2023-07-20 09:00:00.000Z 

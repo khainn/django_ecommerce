@@ -1,0 +1,90 @@
+# Blog Images
+- model: ecommerce.BlogImage
+  pk: 5d7a9c34-12b6-42e8-af31-7c6d5f018e91
+  fields:
+    blog: 7c17bdfc-d556-434e-a924-c754a8536105  # Vải thiều Lục Ngạn
+    image: blogs/vai-thieu-gallery-1.jpg
+    caption: Cây vải thiều Lục Ngạn đang mùa thu hoạch
+    display_order: 1
+    created_at: 2023-05-10 09:30:00.000Z
+    updated_at: 2023-05-10 09:30:00.000Z
+
+- model: ecommerce.BlogImage
+  pk: 6e8b7d25-34c5-4f96-be23-8d9a7f126e53
+  fields:
+    blog: 7c17bdfc-d556-434e-a924-c754a8536105  # Vải thiều Lục Ngạn
+    image: blogs/vai-thieu-gallery-2.jpg
+    caption: Vải thiều Lục Ngạn được đóng gói cẩn thận
+    display_order: 2
+    created_at: 2023-05-10 09:35:00.000Z
+    updated_at: 2023-05-10 09:35:00.000Z
+
+- model: ecommerce.BlogImage
+  pk: 30eff8c4-cdd8-41a4-808b-bc769f8502b7
+  fields:
+    blog: 7c17bdfc-d556-434e-a924-c754a8536105  # Vải thiều Lục Ngạn
+    image: blogs/vai-thieu-gallery-3.jpg
+    caption: Vải thiều Lục Ngạn được bày bán tại chợ địa phương
+    display_order: 3
+    created_at: 2023-05-10 09:40:00.000Z
+    updated_at: 2023-05-10 09:40:00.000Z
+
+- model: ecommerce.BlogImage
+  pk: bb38da21-02e5-42a3-a920-59a7235e997a
+  fields:
+    blog: a1e93f7b-1c25-4b8a-96d8-ea8d56732a9c  # Khám phá vùng đất Lục Ngạn
+    image: blogs/luc-ngan-gallery-1.jpg
+    caption: Cảnh quan thiên nhiên hùng vĩ của Lục Ngạn
+    display_order: 1
+    created_at: 2023-06-15 09:30:00.000Z
+    updated_at: 2023-06-15 09:30:00.000Z
+
+- model: ecommerce.BlogImage
+  pk: 9ff70f78-64d4-4c52-92ac-ac81ddc301d1
+  fields:
+    blog: a1e93f7b-1c25-4b8a-96d8-ea8d56732a9c  # Khám phá vùng đất Lục Ngạn
+    image: blogs/luc-ngan-gallery-2.jpg
+    caption: Vườn nhãn lồng Lục Ngạn
+    display_order: 2
+    created_at: 2023-06-15 09:35:00.000Z
+    updated_at: 2023-06-15 09:35:00.000Z
+
+- model: ecommerce.BlogImage
+  pk: e1d8a9f3-5e8f-4066-96e6-3ad9cdec5f92
+  fields:
+    blog: a1e93f7b-1c25-4b8a-96d8-ea8d56732a9c  # Khám phá vùng đất Lục Ngạn
+    image: blogs/luc-ngan-gallery-3.jpg
+    caption: Người dân Lục Ngạn đang thu hoạch trái cây
+    display_order: 3
+    created_at: 2023-06-15 09:40:00.000Z
+    updated_at: 2023-06-15 09:40:00.000Z
+
+- model: ecommerce.BlogImage
+  pk: 73743018-3d59-488a-b914-0707b75b6bce
+  fields:
+    blog: 3d5f2e1b-9c72-48a3-b7d9-1e6f4d5c3b2a  # Chè Lục Ngạn
+    image: blogs/che-luc-ngan-gallery-1.jpg
+    caption: Đồi chè xanh mướt ở Lục Ngạn
+    display_order: 1
+    created_at: 2023-07-20 09:30:00.000Z
+    updated_at: 2023-07-20 09:30:00.000Z
+
+- model: ecommerce.BlogImage
+  pk: 4a83d4d3-7a62-457e-a877-e2df2b4fe249
+  fields:
+    blog: 3d5f2e1b-9c72-48a3-b7d9-1e6f4d5c3b2a  # Chè Lục Ngạn
+    image: blogs/che-luc-ngan-gallery-2.jpg
+    caption: Người dân Lục Ngạn đang hái chè
+    display_order: 2
+    created_at: 2023-07-20 09:35:00.000Z
+    updated_at: 2023-07-20 09:35:00.000Z
+
+- model: ecommerce.BlogImage
+  pk: a79f4c09-78c8-4170-8b22-73bad9dbffc4
+  fields:
+    blog: 3d5f2e1b-9c72-48a3-b7d9-1e6f4d5c3b2a  # Chè Lục Ngạn
+    image: blogs/che-luc-ngan-gallery-3.jpg
+    caption: Chè Lục Ngạn được chế biến theo phương pháp truyền thống
+    display_order: 3
+    created_at: 2023-07-20 09:40:00.000Z
+    updated_at: 2023-07-20 09:40:00.000Z
