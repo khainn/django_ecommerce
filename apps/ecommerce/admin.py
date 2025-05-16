@@ -54,9 +54,9 @@ class CartAdmin(admin.ModelAdmin):
     inlines = [CartItemInline]
 
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ("id", "customer_name", "status", "total_price", "created_at")
+    list_display = ("id", "customer_name", "customer_email", "status", "total_price", "created_at")
     list_filter = ("status", "created_at")
-    search_fields = ("customer_name", "customer_phone", "customer_address")
+    search_fields = ("customer_name", "customer_phone", "customer_email", "customer_address", "notes")
     readonly_fields = ("cart", "total_price", "created_at")
 
 class BlogImageInline(admin.TabularInline):

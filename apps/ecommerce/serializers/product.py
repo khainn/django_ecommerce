@@ -33,7 +33,7 @@ class ProductInfo(serializers.Serializer):
 class ProductListRequest(serializers.Serializer):
     category_id = serializers.UUIDField(required=False)
     search = serializers.CharField(required=False)
-    ordering = serializers.CharField(required=False, default="-created_at")
+    ordering = serializers.CharField(required=False, default="id")
 
 
 class ProductListResponse(serializers.Serializer):

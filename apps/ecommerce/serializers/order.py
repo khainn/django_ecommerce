@@ -11,7 +11,9 @@ class OrderItemRequest(serializers.Serializer):
 class OrderCreateRequest(serializers.Serializer):
     customer_name = serializers.CharField(max_length=100)
     customer_phone = serializers.CharField(max_length=20)
+    customer_email = serializers.EmailField(max_length=100, required=False, allow_blank=True)
     customer_address = serializers.CharField()
+    notes = serializers.CharField(required=False, allow_blank=True)
     items = OrderItemRequest(many=True)
 
     def validate_items(self, items):

@@ -62,7 +62,9 @@ class OrderCreateAPIView(APIView):
             order = Order.objects.create(
                 customer_name=validated_data["customer_name"],
                 customer_phone=validated_data["customer_phone"],
+                customer_email=validated_data.get("customer_email", ""),
                 customer_address=validated_data["customer_address"],
+                notes=validated_data.get("notes", ""),
                 total_price=total_price,
                 cart=cart
             )

@@ -1,6 +1,6 @@
 # Products
 - model: ecommerce.Product
-  pk: 8a23851b-c6e7-4277-9eb9-88a1f064710c
+  pk: 1a3e5d7f-9b1c-4d3e-8f6a-2c5b4d7e9a1c
   fields:
     name: Vải thiều Lục Ngạn
     description: Vải thiều Lục Ngạn nổi tiếng với hương vị thơm ngon đặc trưng, quả to, cùi dày, hạt nhỏ. Đây là loại trái cây đặc sản nổi tiếng của Lục Ngạn, Bắc Giang.
@@ -108,7 +108,7 @@
     updated_at: 2024-05-15 09:50:00.000Z
 
 - model: ecommerce.Product
-  pk: 1a3e5d7f-9b1c-4d3e-8f6a-2c5b4d7e9a1c
+  pk: 8a23851b-c6e7-4277-9eb9-88a1f064710c
   fields:
     name: Gạo nếp Lục Ngạn
     description: Gạo nếp Lục Ngạn nổi tiếng với độ dẻo, thơm và ngọt đặc trưng. Được trồng theo phương pháp canh tác truyền thống của người dân Lục Ngạn.

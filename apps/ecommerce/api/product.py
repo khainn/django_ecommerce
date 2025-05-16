@@ -29,7 +29,7 @@ class ProductListAPIView(APIView):
         # Get filter parameters
         category_id = serializer.validated_data.get("category_id")
         search = serializer.validated_data.get("search")
-        ordering = serializer.validated_data.get("ordering", "-created_at")
+        ordering = serializer.validated_data.get("ordering", "id")
 
         # Build query
         products_query = Product.objects.all().select_related("category")

@@ -9,7 +9,9 @@ class Order(BaseModel):
     """Order model"""
     customer_name = models.CharField(max_length=100)
     customer_phone = models.CharField(max_length=20)
+    customer_email = models.EmailField(max_length=100, blank=True, null=True)
     customer_address = models.TextField()
+    notes = models.TextField(blank=True, default="")
     total_price = models.IntegerField()
     status = models.CharField(
         max_length=20,
