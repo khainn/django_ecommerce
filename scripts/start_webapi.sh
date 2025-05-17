@@ -10,7 +10,7 @@ port=${DJANGO_PORT:-8080}
 
 python scripts/collect_static.py
 python manage.py migrate
-python manage.py loaddata scripts/fixtures/*
+# python manage.py loaddata scripts/fixtures/*
 
 echo "PRODUCTION is: $PRODUCTION"
 

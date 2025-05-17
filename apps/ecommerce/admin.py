@@ -75,12 +75,12 @@ class BlogImageInline(admin.TabularInline):
     image_preview.allow_tags = True
 
 class BlogAdmin(admin.ModelAdmin):
-    list_display = ("id", "title", "slug", "author", "date", "created_at")
+    list_display = ("id", "title", "author", "date", "created_at")
     list_filter = ("date", "created_at")
     search_fields = ("title", "excerpt", "content")
     readonly_fields = ("image_preview",)
-    fields = ("title", "slug", "author", "date", "image", "image_preview", "excerpt", "content")
-    prepopulated_fields = {"slug": ("title",)}
+    fields = ("title", "author", "date", "image", "image_preview", "excerpt", "content")
+    prepopulated_fields = {"title": ("title",)}
     inlines = [BlogImageInline]
 
     def image_preview(self, obj):

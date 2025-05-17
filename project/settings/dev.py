@@ -4,6 +4,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+# Explicitly set the admin site URL for development
+ADMIN_SITE_URL = 'https://dac-san-luc-ngan.vercel.app/'
+
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 NOSE_ARGS = [
     '--with-coverage',

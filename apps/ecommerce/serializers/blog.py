@@ -1,4 +1,6 @@
 from rest_framework import serializers
+from drf_spectacular.utils import extend_schema_field
+from drf_spectacular.types import OpenApiTypes
 
 
 class BlogImageInfo(serializers.Serializer):
@@ -7,6 +9,7 @@ class BlogImageInfo(serializers.Serializer):
     caption = serializers.CharField()
     display_order = serializers.IntegerField()
 
+    @extend_schema_field(OpenApiTypes.URI)
     def get_image(self, obj):
         if obj.image and hasattr(obj.image, "url"):
             request = self.context.get("request")
@@ -29,6 +32,7 @@ class BlogInfo(serializers.Serializer):
     created_at = serializers.DateTimeField()
     updated_at = serializers.DateTimeField()
 
+    @extend_schema_field(OpenApiTypes.URI)
     def get_image(self, obj):
         if obj.image and hasattr(obj.image, "url"):
             request = self.context.get("request")
@@ -37,6 +41,7 @@ class BlogInfo(serializers.Serializer):
             return obj.image.url
         return None
 
+    @extend_schema_field(serializers.ListField(child=BlogImageInfo()))
     def get_gallery(self, obj):
         # Only include gallery in detail view
         if not hasattr(obj, "gallery"):

@@ -17,8 +17,11 @@ class BlogListAPIView(APIView):
     permission_classes = []
     authentication_classes = []
 
-    @extend_schema(parameters=[BlogListRequest],
-                   responses={200: BlogListResponse, 400: ErrorResponse, 500: ErrorResponse})
+    @extend_schema(
+        operation_id="blog_list",
+        parameters=[BlogListRequest],
+        responses={200: BlogListResponse, 400: ErrorResponse, 500: ErrorResponse}
+    )
     def get(self, request):
         """Get a list of blogs with optional filtering"""
         serializer = BlogListRequest(data=request.query_params.dict())
@@ -52,10 +55,13 @@ class BlogDetailAPIView(APIView):
     permission_classes = []
     authentication_classes = []
 
-    @extend_schema(responses={200: BlogDetailResponse, 400: ErrorResponse, 404: ErrorResponse, 500: ErrorResponse})
-    def get(self, request, slug):
-        """Get blog details by slug"""
-        blog = Blog.objects.filter(slug=slug).prefetch_related("gallery").first()
+    @extend_schema(
+        operation_id="blog_detail",
+        responses={200: BlogDetailResponse, 400: ErrorResponse, 404: ErrorResponse, 500: ErrorResponse}
+    )
+    def get(self, request, blog_id):
+        """Get blog details by id"""
+        blog = Blog.objects.filter(id=blog_id).prefetch_related("gallery").first()
         if not blog:
             raise BadRequest(404000, error_detail="Blog not found")
 

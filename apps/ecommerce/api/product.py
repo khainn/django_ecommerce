@@ -18,8 +18,11 @@ class ProductListAPIView(APIView):
     permission_classes = []
     authentication_classes = []
 
-    @extend_schema(parameters=[ProductListRequest],
-                   responses={200: ProductListResponse, 400: ErrorResponse, 500: ErrorResponse})
+    @extend_schema(
+        operation_id="product_list",
+        parameters=[ProductListRequest],
+        responses={200: ProductListResponse, 400: ErrorResponse, 500: ErrorResponse}
+    )
     def get(self, request):
         """Get a list of products with optional filtering"""
         serializer = ProductListRequest(data=request.query_params.dict())
@@ -57,7 +60,10 @@ class ProductDetailAPIView(APIView):
     permission_classes = []
     authentication_classes = []
 
-    @extend_schema(responses={200: ProductDetailResponse, 400: ErrorResponse, 404: ErrorResponse, 500: ErrorResponse})
+    @extend_schema(
+        operation_id="product_detail",
+        responses={200: ProductDetailResponse, 400: ErrorResponse, 404: ErrorResponse, 500: ErrorResponse}
+    )
     def get(self, request, product_id):
         """Get product details"""
         product = Product.objects.filter(id=product_id).select_related("category").first()
@@ -72,7 +78,11 @@ class ProductDetailAPIView(APIView):
 class CategoryListAPIView(APIView):
     permission_classes = []
     authentication_classes = []
-    @extend_schema(responses={200: CategoryListResponse, 400: ErrorResponse, 500: ErrorResponse})
+    
+    @extend_schema(
+        operation_id="category_list",
+        responses={200: CategoryListResponse, 400: ErrorResponse, 500: ErrorResponse}
+    )
     def get(self, request):
         """Get a list of product categories"""
         # Get filter parameters
