@@ -12,6 +12,14 @@ JWT_REFRESH_TOKEN_EXPIRE_DAYS = config('JWT_REFRESH_TOKEN_EXPIRE_DAYS', cast=int
 ALLOWED_HOSTS = ["django-ecommerce-lhsn.onrender.com"]
 CSRF_TRUSTED_ORIGINS = ["https://django-ecommerce-lhsn.onrender.com"]
 
+# Cloudinary configuration
+CLOUDINARY = {
+    'cloud_name': config('CLOUDINARY_CLOUD_NAME', cast=str),
+    'api_key': config('CLOUDINARY_API_KEY', cast=str),
+    'api_secret': config('CLOUDINARY_API_SECRET', cast=str),
+    'secure': True
+}
+
 # Use this setting for allowing all origins in CORS
 APPEND_SLASH = True
 CORS_ALLOW_ALL_ORIGINS = True
@@ -34,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'drf_spectacular',
     'corsheaders',
+    'cloudinary_storage',
     'apps.ecommerce'
 ]
 
@@ -114,6 +123,24 @@ STATICFILES_DIRS = []
 # Media files (Uploaded images)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')
+
+# Cloudinary storage configuration
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME', cast=str),
+    'API_KEY': config('CLOUDINARY_API_KEY', cast=str),
+    'API_SECRET': config('CLOUDINARY_API_SECRET', cast=str),
+    'STATIC_IMAGES_EXTENSIONS': ['jpg', 'jpe', 'jpeg', 'png'],
+    'MAGIC_FILE_PATH': 'magic',
+    'STATIC_IMAGES_TRANSFORMATIONS': {
+        'default': {
+            'quality': 'auto',
+            'fetch_format': 'auto',
+        }
+    }
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, "locale"),
@@ -205,6 +232,3 @@ if EXTERNAL_HOST:
 
 ADMIN_SITE_URL = config('ADMIN_SITE_URL', cast=str, default='')
 ADMIN_VIEW_SITE_TEXT = config('ADMIN_VIEW_SITE_TEXT', cast=str, default='STORE')
-
-# WhiteNoise configuration
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

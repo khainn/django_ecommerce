@@ -1,9 +1,8 @@
 import uuid
-import os
-
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.text import slugify
+from cloudinary_storage.storage import MediaCloudinaryStorage
 
 from common.models import BaseModel
 
@@ -42,7 +41,13 @@ class Product(BaseModel):
     description = models.TextField(blank=True, default="")
     price = models.IntegerField()
     quantity_in_stock = models.IntegerField()
-    image = models.ImageField(upload_to=product_image_path, blank=True, null=True, validators=[validate_image_size])
+    image = models.ImageField(
+        upload_to=product_image_path,
+        blank=True,
+        null=True,
+        validators=[validate_image_size],
+        storage=MediaCloudinaryStorage()
+    )
     total_sold = models.IntegerField(default=0)
     excerpt = models.TextField(blank=True, default="")
     content = models.TextField(blank=True, default="")
@@ -65,26 +70,7 @@ class Product(BaseModel):
         return self.name
 
     def save(self, *args, **kwargs):
-        # Check if this is an existing product with an image being changed
-        if self.pk:
-            try:
-                old_instance = Product.objects.get(pk=self.pk)
-                if old_instance.image and self.image != old_instance.image:
-                    # Delete the old image file
-                    if os.path.isfile(old_instance.image.path):
-                        os.remove(old_instance.image.path)
-            except (Product.DoesNotExist, ValueError, FileNotFoundError):
-                pass  # Handle case where old image doesn't exist or can't be found
-        
         super().save(*args, **kwargs)
     
     def delete(self, *args, **kwargs):
-        # Delete the image file when the product is deleted
-        if self.image:
-            try:
-                if os.path.isfile(self.image.path):
-                    os.remove(self.image.path)
-            except (ValueError, FileNotFoundError):
-                pass  # Handle case where image doesn't exist or can't be found
-        
         super().delete(*args, **kwargs)

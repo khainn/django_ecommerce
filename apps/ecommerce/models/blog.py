@@ -1,8 +1,7 @@
 import uuid
-import os
-
 from django.db import models
 from django.utils.text import slugify
+from cloudinary_storage.storage import MediaCloudinaryStorage
 
 from common.models import BaseModel
 
@@ -21,7 +20,12 @@ class Blog(BaseModel):
     slug = models.SlugField(max_length=200, unique=True)
     author = models.CharField(max_length=100, default="Admin")
     date = models.DateField()
-    image = models.ImageField(upload_to=blog_image_path, blank=True, null=True)
+    image = models.ImageField(
+        upload_to=blog_image_path,
+        blank=True,
+        null=True,
+        storage=MediaCloudinaryStorage()
+    )
     excerpt = models.TextField(blank=True, default="")
     content = models.TextField(blank=True, default="")
     
@@ -34,32 +38,11 @@ class Blog(BaseModel):
         return self.title
     
     def save(self, *args, **kwargs):
-        # Auto-generate slug if not provided
         if not self.slug:
             self.slug = slugify(self.title)
-            
-        # Check if this is an existing blog with an image being changed
-        if self.pk:
-            try:
-                old_instance = Blog.objects.get(pk=self.pk)
-                if old_instance.image and self.image != old_instance.image:
-                    # Delete the old image file
-                    if os.path.isfile(old_instance.image.path):
-                        os.remove(old_instance.image.path)
-            except (Blog.DoesNotExist, ValueError, FileNotFoundError):
-                pass  # Handle case where old image doesn't exist or can't be found
-                
         super().save(*args, **kwargs)
         
     def delete(self, *args, **kwargs):
-        # Delete the image file when the blog is deleted
-        if self.image:
-            try:
-                if os.path.isfile(self.image.path):
-                    os.remove(self.image.path)
-            except (ValueError, FileNotFoundError):
-                pass  # Handle case where image doesn't exist or can't be found
-        
         super().delete(*args, **kwargs)
         
     @property
@@ -74,7 +57,10 @@ class Blog(BaseModel):
 class BlogImage(BaseModel):
     """Blog image model for gallery images"""
     blog = models.ForeignKey(Blog, on_delete=models.CASCADE, related_name="gallery")
-    image = models.ImageField(upload_to=blog_image_path)
+    image = models.ImageField(
+        upload_to=blog_image_path,
+        storage=MediaCloudinaryStorage()
+    )
     caption = models.CharField(max_length=200, blank=True, default="")
     display_order = models.PositiveIntegerField(default=0)
     
@@ -88,26 +74,7 @@ class BlogImage(BaseModel):
         return f"Image for {self.blog.title}"
         
     def save(self, *args, **kwargs):
-        # Check if this is an existing blog image with an image being changed
-        if self.pk:
-            try:
-                old_instance = BlogImage.objects.get(pk=self.pk)
-                if old_instance.image and self.image != old_instance.image:
-                    # Delete the old image file
-                    if os.path.isfile(old_instance.image.path):
-                        os.remove(old_instance.image.path)
-            except (BlogImage.DoesNotExist, ValueError, FileNotFoundError):
-                pass  # Handle case where old image doesn't exist or can't be found
-                
         super().save(*args, **kwargs)
     
     def delete(self, *args, **kwargs):
-        # Delete the image file when the blog image is deleted
-        if self.image:
-            try:
-                if os.path.isfile(self.image.path):
-                    os.remove(self.image.path)
-            except (ValueError, FileNotFoundError):
-                pass  # Handle case where image doesn't exist or can't be found
-        
         super().delete(*args, **kwargs)
