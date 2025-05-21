@@ -129,7 +129,7 @@ CLOUDINARY_STORAGE = {
     'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME', cast=str),
     'API_KEY': config('CLOUDINARY_API_KEY', cast=str),
     'API_SECRET': config('CLOUDINARY_API_SECRET', cast=str),
-    'STATIC_IMAGES_EXTENSIONS': ['jpg', 'jpe', 'jpeg', 'png'],
+    'STATIC_IMAGES_EXTENSIONS': ['jpg', 'jpe', 'jpeg', 'png', 'gif', 'webp', 'bmp', 'tif', 'tiff', 'ico'],
     'MAGIC_FILE_PATH': 'magic',
     'STATIC_IMAGES_TRANSFORMATIONS': {
         'default': {

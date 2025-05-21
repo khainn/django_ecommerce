@@ -2,7 +2,7 @@ from django.conf import settings
 from django.contrib import admin
 from django.contrib.admin import AdminSite
 
-from apps.ecommerce.models import Blog, BlogImage, Cart, CartItem, Order, Product, ProductCategory
+from apps.ecommerce.models import Blog, BlogImage, Cart, CartItem, Order, Product, ProductCategory, Banner
 from apps.ecommerce.utils.admin import set_admin_site_url
 
 
@@ -108,6 +108,23 @@ class BlogImageAdmin(admin.ModelAdmin):
     image_preview.short_description = "Image Preview"
     image_preview.allow_tags = True
 
+class BannerAdmin(admin.ModelAdmin):
+    list_display = ("id", "title", "position", "is_active", "created_at")
+    list_filter = ("is_active", "created_at")
+    search_fields = ("title", "target_url")
+    readonly_fields = ("image_preview",)
+    fields = ("title", "image", "image_preview", "target_url", "position", "is_active")
+    list_editable = ("position", "is_active")
+
+    def image_preview(self, obj):
+        """Display image preview in admin"""
+        if obj.image:
+            return f'<img src="{obj.image.url}" width="150" />'
+        return "No image"
+
+    image_preview.short_description = "Image Preview"
+    image_preview.allow_tags = True
+
 # Register models with the custom admin site
 ecommerce_admin.register(ProductCategory, ProductCategoryAdmin)
 ecommerce_admin.register(Product, ProductAdmin)
@@ -115,6 +132,7 @@ ecommerce_admin.register(Cart, CartAdmin)
 ecommerce_admin.register(Order, OrderAdmin)
 ecommerce_admin.register(Blog, BlogAdmin)
 ecommerce_admin.register(BlogImage, BlogImageAdmin)
+ecommerce_admin.register(Banner, BannerAdmin)
 
 # Also register with the default admin for convenience if needed
 admin.site.register(ProductCategory, ProductCategoryAdmin)
@@ -123,6 +141,7 @@ admin.site.register(Cart, CartAdmin)
 admin.site.register(Order, OrderAdmin)
 admin.site.register(Blog, BlogAdmin)
 admin.site.register(BlogImage, BlogImageAdmin)
+admin.site.register(Banner, BannerAdmin)
 
 # Set the site_url for all admin sites
 set_admin_site_url(getattr(settings, "ADMIN_SITE_URL", "/ecommerce/"))
