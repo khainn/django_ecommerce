@@ -1,7 +1,6 @@
 import uuid
 from django.db import models
 from django.utils.text import slugify
-from django.utils.translation import gettext_lazy as _
 from cloudinary_storage.storage import MediaCloudinaryStorage
 
 from common.models import BaseModel
@@ -17,36 +16,35 @@ def blog_image_path(instance, filename):
 
 class Blog(BaseModel):
     """Blog model"""
-    title = models.CharField(max_length=200, verbose_name=_("Title"))
-    slug = models.SlugField(max_length=200, unique=True, verbose_name=_("Slug"))
-    author = models.CharField(max_length=100, default="Admin", verbose_name=_("Author"))
-    date = models.DateField(verbose_name=_("Date"))
+    title = models.CharField(max_length=200)
+    slug = models.SlugField(max_length=200, unique=True)
+    author = models.CharField(max_length=100, default="Admin")
+    date = models.DateField()
     image = models.ImageField(
         upload_to=blog_image_path,
         blank=True,
         null=True,
-        storage=MediaCloudinaryStorage(),
-        verbose_name=_("Image")
+        storage=MediaCloudinaryStorage()
     )
-    excerpt = models.TextField(blank=True, default="", verbose_name=_("Excerpt"))
-    content = models.TextField(blank=True, default="", verbose_name=_("Content"))
-
+    excerpt = models.TextField(blank=True, default="")
+    content = models.TextField(blank=True, default="")
+    
     class Meta(BaseModel.Meta):
         db_table = "ecommerce_blogs"
-        verbose_name = _("Blog")
-        verbose_name_plural = _("Blogs")
-
+        verbose_name = "Blog"
+        verbose_name_plural = "Blogs"
+    
     def __str__(self):
         return self.title
-
+    
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
         super().save(*args, **kwargs)
-
+        
     def delete(self, *args, **kwargs):
         super().delete(*args, **kwargs)
-
+        
     @property
     def all_images(self):
         """Get all images for this blog including the main image and gallery images"""
@@ -58,26 +56,25 @@ class Blog(BaseModel):
 
 class BlogImage(BaseModel):
     """Blog image model for gallery images"""
-    blog = models.ForeignKey(Blog, on_delete=models.CASCADE, related_name="gallery", verbose_name=_("Blog"))
+    blog = models.ForeignKey(Blog, on_delete=models.CASCADE, related_name="gallery")
     image = models.ImageField(
         upload_to=blog_image_path,
-        storage=MediaCloudinaryStorage(),
-        verbose_name=_("Image")
+        storage=MediaCloudinaryStorage()
     )
-    caption = models.CharField(max_length=200, blank=True, default="", verbose_name=_("Caption"))
-    display_order = models.PositiveIntegerField(default=0, verbose_name=_("Display Order"))
-
+    caption = models.CharField(max_length=200, blank=True, default="")
+    display_order = models.PositiveIntegerField(default=0)
+    
     class Meta(BaseModel.Meta):
         db_table = "ecommerce_blog_images"
-        verbose_name = _("Blog Image")
-        verbose_name_plural = _("Blog Images")
+        verbose_name = "Blog Image"
+        verbose_name_plural = "Blog Images"
         ordering = ["display_order"]
 
     def __str__(self):
         return f"Image for {self.blog.title}"
-
+        
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-
+    
     def delete(self, *args, **kwargs):
         super().delete(*args, **kwargs)

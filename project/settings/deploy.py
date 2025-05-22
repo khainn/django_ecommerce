@@ -2,8 +2,6 @@ import os
 from pathlib import Path
 
 from decouple import config
-import django.conf.locale
-from django.utils.translation import gettext_lazy as _
 
 DEBUG = False
 BASE_DIR = Path(__file__).parent.parent.parent.absolute()
@@ -34,7 +32,6 @@ CORS_EXPOSE_HEADERS = ['Content-Disposition']
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 INSTALLED_APPS = [
-    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -121,7 +118,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Extra places for collectstatic to find static files - simpler approach
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATICFILES_DIRS = []
 
 # Media files (Uploaded images)
 MEDIA_URL = '/media/'
@@ -148,12 +145,11 @@ STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, "locale"),
 )
-
-LANGUAGE_CODE = 'vi'
 LANGUAGES = [
     ('en', 'English'),
-    ('vi', 'Tiếng Việt'),
+    ('ja', 'Japanese'),
 ]
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'Asia/Ho_Chi_Minh'
 USE_I18N = True
@@ -236,136 +232,3 @@ if EXTERNAL_HOST:
 
 ADMIN_SITE_URL = config('ADMIN_SITE_URL', cast=str, default='')
 ADMIN_VIEW_SITE_TEXT = config('ADMIN_VIEW_SITE_TEXT', cast=str, default='STORE')
-
-# WhiteNoise configuration
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-# Jazzmin Settings
-JAZZMIN_SETTINGS = {
-    # title of the window (Will default to current_admin_site.site_title if absent or None)
-    "site_title": "Store manager",
-    # Title on the login screen (19 chars max) (Will default to current_admin_site.site_header if absent or None)
-    "site_header": "Store manager",
-    # Title on the brand (19 chars max) (Will default to current_admin_site.site_header if absent or None)
-    "site_brand": "Store manager",
-    # Logo to use for your site, must be present in static files, used for brand on top left
-    "site_logo": None,
-    # Logo to use for your site, must be present in static files, used for login form logo (defaults to site_logo)
-    "login_logo": None,
-    # CSS classes that are applied to the logo above
-    "site_logo_classes": "img-circle",
-    # Relative path to a favicon for your site, will default to site_logo if absent (ideally 32x32 px)
-    "site_icon": None,
-    # Welcome text on the login screen
-    "welcome_sign": "Welcome to Store Manager",
-    # Copyright on the footer
-    "copyright": "Store Manager",
-    # Hide the search bar on the topbar
-    "show_search": False,
-    # The model admin to search from the search bar, search bar omitted if excluded
-    # "search_model": "ecommerce.Product",
-    # Field name on user model that contains avatar ImageField/URLField/Charfield or a callable that receives the user
-    "user_avatar": None,
-    ############
-    # Top Menu #
-    ############
-    # Links to put along the top menu
-    "topmenu_links": [
-        {"name": "Home", "url": "admin:index", "permissions": ["auth.view_user"]},
-        {"name": "View Site", "url": ADMIN_SITE_URL or "/", "new_window": True},
-    ],
-    #############
-    # Side Menu #
-    #############
-    # Whether to display the side menu
-    "show_sidebar": True,
-    # Whether to aut expand the menu
-    "navigation_expanded": True,
-    # List of apps
-    "order_with_respect_to": [
-        'ecommerce.Banner',
-        'ecommerce.Product',
-        'ecommerce.ProductCategory',
-        'ecommerce.Blog',
-        'ecommerce.BlogImage',
-        'ecommerce.Order',
-        'ecommerce.Cart',
-        'ecommerce.CartItem',
-    ],
-    # Custom icons for side menu apps/models
-    "icons": {
-        "auth": "fas fa-users-cog",
-        "auth.user": "fas fa-user",
-        "auth.Group": "fas fa-users",
-    },
-    # Icons that are used when one is not manually specified
-    "default_icon_parents": "fas fa-chevron-circle-right",
-    "default_icon_children": "fas fa-circle",
-    # Hide these apps from the sidebar menu
-    "hide_apps": ["auth", "authtoken"],
-    # Hide these models from the sidebar menu
-    "hide_models": ["auth.Group", "auth.User"],
-    #############
-    # UI Tweaks #
-    #############
-    # Relative paths to custom CSS/JS files (must be present in static files)
-    "custom_css": "css/admin_vietnamese_font.css",
-    "custom_js": None,
-    # Whether to show the UI customizer on the sidebar
-    "show_ui_builder": False,
-    # Hide the version number
-    "show_version": False,
-    ###############
-    # Change view #
-    ###############
-    # Render out the change view as a single form, or in tabs, current options are
-    # - single
-    # - horizontal_tabs (default)
-    # - vertical_tabs
-    # - collapsible
-    # - carousel
-    "changeform_format": "horizontal_tabs",
-    # override change forms on a per modeladmin basis
-    "changeform_format_overrides": {
-        "auth.user": "collapsible",
-        "auth.group": "vertical_tabs",
-    },
-    "language_chooser": True
-}
-
-# UI Customizer
-JAZZMIN_UI_TWEAKS = {
-    "navbar_small_text": False,
-    "footer_small_text": False,
-    "body_small_text": False,
-    "brand_small_text": False,
-    "brand_colour": "navbar-primary",
-    "accent": "accent-primary",
-    "navbar": "navbar-dark",
-    "no_navbar_border": False,
-    "navbar_fixed": False,
-    "layout_boxed": False,
-    "footer_fixed": False,
-    "sidebar_fixed": False,
-    "sidebar": "sidebar-dark-primary",
-    "sidebar_nav_small_text": False,
-    "sidebar_disable_expand": False,
-    "sidebar_nav_child_indent": False,
-    "sidebar_nav_compact_style": False,
-    "sidebar_nav_legacy_style": False,
-    "sidebar_nav_flat_style": False,
-    "theme": "default",
-    "dark_mode_theme": None,
-    "button_classes": {
-        "primary": "btn-primary",
-        "secondary": "btn-secondary",
-        "info": "btn-info",
-        "warning": "btn-warning",
-        "danger": "btn-danger",
-        "success": "btn-success"
-    }
-}
-
-for lang in django.conf.locale.LANG_INFO.values():
-    if lang.get('code') == 'vi':
-        lang['name_local'] = 'Tiếng Việt'
