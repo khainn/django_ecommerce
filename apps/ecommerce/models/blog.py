@@ -18,7 +18,6 @@ def blog_image_path(instance, filename):
 class Blog(BaseModel):
     """Blog model"""
     title = models.CharField(max_length=200, verbose_name=_("Title"))
-    slug = models.SlugField(max_length=200, unique=True, verbose_name=_("Slug"))
     author = models.CharField(max_length=100, default="Admin", verbose_name=_("Author"))
     date = models.DateField(verbose_name=_("Date"))
     image = models.ImageField(
@@ -40,8 +39,6 @@ class Blog(BaseModel):
         return self.title
 
     def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.title)
         super().save(*args, **kwargs)
 
     def delete(self, *args, **kwargs):

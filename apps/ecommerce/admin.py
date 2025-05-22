@@ -100,6 +100,7 @@ class BlogAdminForm(forms.ModelForm):
         fields = "__all__"
         widgets = {
             'image': NoCurrentFileClearableFileInput,
+            'title': forms.TextInput(attrs={'class': 'vTextField'}),
         }
 
 class BlogAdmin(admin.ModelAdmin):
@@ -108,7 +109,6 @@ class BlogAdmin(admin.ModelAdmin):
     search_fields = ("title", "excerpt", "content")
     readonly_fields = ("image_preview",)
     fields = ("title", "author", "date", "image_preview", "image", "excerpt", "content")
-    prepopulated_fields = {"title": ("title",)}
     inlines = [BlogImageInline]
     form = BlogAdminForm
 
