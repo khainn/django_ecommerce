@@ -4,6 +4,7 @@ from django.contrib.admin import AdminSite
 from django.utils.translation import gettext_lazy as _
 from django.utils.safestring import mark_safe
 from django import forms
+from django.urls import path, include
 
 from apps.ecommerce.models import Blog, BlogImage, Cart, CartItem, Order, Product, ProductCategory, Banner
 from apps.ecommerce.utils.admin import set_admin_site_url
@@ -21,7 +22,16 @@ class EcommerceAdminSite(AdminSite):
         context = super().each_context(request)
         # Set the site_url (View site link)
         context["site_url"] = getattr(settings, "ADMIN_SITE_URL", "/ecommerce/")
+        # Add language switching URL
+        context["i18n_urls"] = True
         return context
+
+    def get_urls(self):
+        urls = super().get_urls()
+        custom_urls = [
+            path('i18n/', include('django.conf.urls.i18n')),
+        ]
+        return custom_urls + urls
 
 # Initialize the custom admin site
 ecommerce_admin = EcommerceAdminSite(name="ecommerce_admin")
