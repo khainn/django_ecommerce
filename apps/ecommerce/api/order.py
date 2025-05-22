@@ -80,4 +80,4 @@ class OrderCreateAPIView(APIView):
             # In case of error, the transaction will be rolled back
             if isinstance(e, BadRequest):
                 raise e
-            raise BadRequest(500000, error_detail=str(e))
+            raise BadRequest(500000, error_detail=str(e)) from e

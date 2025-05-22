@@ -1,9 +1,13 @@
 from django.conf import settings
 from django.contrib import admin
 from django.contrib.admin import AdminSite
+from django.utils.translation import gettext_lazy as _
+from django.utils.safestring import mark_safe
+from django import forms
 
 from apps.ecommerce.models import Blog, BlogImage, Cart, CartItem, Order, Product, ProductCategory, Banner
 from apps.ecommerce.utils.admin import set_admin_site_url
+from apps.ecommerce.widgets import NoCurrentFileClearableFileInput
 
 
 # Create a custom admin site that doesn't include auth models
@@ -28,22 +32,30 @@ class ProductCategoryAdmin(admin.ModelAdmin):
     search_fields = ("name",)
     list_filter = ("created_at",)
 
+class ProductAdminForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = "__all__"
+        widgets = {
+            'image': NoCurrentFileClearableFileInput,
+        }
+
 class ProductAdmin(admin.ModelAdmin):
     list_display = ("id", "name", "price", "quantity_in_stock", "total_sold", "category", "created_at")
     list_filter = ("category", "created_at")
     search_fields = ("name", "description")
     readonly_fields = ("image_preview",)
     fields = ("name", "description", "price", "quantity_in_stock", "category",
-              "image", "image_preview", "excerpt", "content")
+              "image_preview", "image", "excerpt", "content")
+    form = ProductAdminForm
 
     def image_preview(self, obj):
         """Display image preview in admin"""
         if obj.image:
-            return f'<img src="{obj.image.url}" width="150" />'
-        return "No image"
+            return mark_safe(f'<img src="{obj.image.url}" width="300" style="border:1px solid #ccc; padding:5px; border-radius:8px;" />',)
+        return _("No image")
 
-    image_preview.short_description = "Image Preview"
-    image_preview.allow_tags = True
+    image_preview.short_description = _("Image Preview")
 
 class CartItemInline(admin.TabularInline):
     model = CartItem
@@ -68,62 +80,85 @@ class BlogImageInline(admin.TabularInline):
     def image_preview(self, obj):
         """Display image preview in admin"""
         if obj.image:
-            return f'<img src="{obj.image.url}" width="150" />'
-        return "No image"
+            return mark_safe(f'<img src="{obj.image.url}" width="300" style="border:1px solid #ccc; padding:5px; border-radius:8px;" />',)
+        return _("No image")
 
-    image_preview.short_description = "Image Preview"
-    image_preview.allow_tags = True
+    image_preview.short_description = _("Image Preview")
+
+class BlogAdminForm(forms.ModelForm):
+    class Meta:
+        model = Blog
+        fields = "__all__"
+        widgets = {
+            'image': NoCurrentFileClearableFileInput,
+        }
 
 class BlogAdmin(admin.ModelAdmin):
     list_display = ("id", "title", "author", "date", "created_at")
     list_filter = ("date", "created_at")
     search_fields = ("title", "excerpt", "content")
     readonly_fields = ("image_preview",)
-    fields = ("title", "author", "date", "image", "image_preview", "excerpt", "content")
+    fields = ("title", "author", "date", "image_preview", "image", "excerpt", "content")
     prepopulated_fields = {"title": ("title",)}
     inlines = [BlogImageInline]
+    form = BlogAdminForm
 
     def image_preview(self, obj):
         """Display image preview in admin"""
         if obj.image:
-            return f'<img src="{obj.image.url}" width="150" />'
-        return "No image"
+            return mark_safe(f'<img src="{obj.image.url}" width="300" style="border:1px solid #ccc; padding:5px; border-radius:8px;" />',)
+        return _("No image")
 
-    image_preview.short_description = "Image Preview"
-    image_preview.allow_tags = True
+    image_preview.short_description = _("Image Preview")
+
+class BlogImageAdminForm(forms.ModelForm):
+    class Meta:
+        model = BlogImage
+        fields = "__all__"
+        widgets = {
+            'image': NoCurrentFileClearableFileInput,
+        }
 
 class BlogImageAdmin(admin.ModelAdmin):
     list_display = ("id", "blog", "caption", "display_order", "created_at")
     list_filter = ("blog", "created_at")
     search_fields = ("blog__title", "caption")
     readonly_fields = ("image_preview",)
-    fields = ("blog", "image", "image_preview", "caption", "display_order")
+    fields = ("blog", "image_preview", "image", "caption", "display_order")
+    form = BlogImageAdminForm
 
     def image_preview(self, obj):
         """Display image preview in admin"""
         if obj.image:
-            return f'<img src="{obj.image.url}" width="150" />'
-        return "No image"
+            return mark_safe(f'<img src="{obj.image.url}" width="300" style="border:1px solid #ccc; padding:5px; border-radius:8px;" />',)
+        return _("No image")
 
-    image_preview.short_description = "Image Preview"
-    image_preview.allow_tags = True
+    image_preview.short_description = _("Image Preview")
+
+class BannerAdminForm(forms.ModelForm):
+    class Meta:
+        model = Banner
+        fields = "__all__"
+        widgets = {
+            'image': NoCurrentFileClearableFileInput,
+        }
 
 class BannerAdmin(admin.ModelAdmin):
     list_display = ("id", "title", "position", "is_active", "created_at")
     list_filter = ("is_active", "created_at")
     search_fields = ("title", "target_url")
     readonly_fields = ("image_preview",)
-    fields = ("title", "image", "image_preview", "target_url", "position", "is_active")
+    fields = ("title", "image_preview", "image", "target_url", "position", "is_active")
     list_editable = ("position", "is_active")
+    form = BannerAdminForm
 
     def image_preview(self, obj):
         """Display image preview in admin"""
         if obj.image:
-            return f'<img src="{obj.image.url}" width="150" />'
-        return "No image"
+            return mark_safe(f'<img src="{obj.image.url}" width="300" style="border:1px solid #ccc; padding:5px; border-radius:8px;" />',)
+        return _("No image")
 
-    image_preview.short_description = "Image Preview"
-    image_preview.allow_tags = True
+    image_preview.short_description = _("Image Preview")
 
 # Register models with the custom admin site
 ecommerce_admin.register(ProductCategory, ProductCategoryAdmin)
