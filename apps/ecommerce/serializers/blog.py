@@ -22,7 +22,6 @@ class BlogImageInfo(serializers.Serializer):
 class BlogInfo(serializers.Serializer):
     id = serializers.UUIDField()
     title = serializers.CharField()
-    slug = serializers.SlugField()
     author = serializers.CharField()
     date = serializers.DateField()
     image = serializers.SerializerMethodField()
@@ -63,7 +62,7 @@ class BlogListResponse(serializers.Serializer):
 
 
 class BlogDetailRequest(serializers.Serializer):
-    slug = serializers.SlugField()
+    id = serializers.UUIDField()
 
 
 class BlogDetailResponse(BlogInfo):

@@ -8,11 +8,10 @@ from common.models import BaseModel
 
 
 def blog_image_path(instance, filename):
-    """Generate file path for blog image with slugified title"""
+    """Generate file path for blog image"""
     ext = filename.split(".")[-1]
-    slug_title = slugify(instance.blog.title if hasattr(instance, "blog") else instance.title)
     unique_id = str(uuid.uuid4())[:8]
-    return f"blogs/{slug_title}-{unique_id}.{ext}"
+    return f"blogs/{unique_id}.{ext}"
 
 
 class Blog(BaseModel):
