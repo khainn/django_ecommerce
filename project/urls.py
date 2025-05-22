@@ -2,6 +2,7 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls import include
 from django.conf.urls.static import static
+from django.views.i18n import set_language
 from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
 from apps.ecommerce.admin import ecommerce_admin
 from project.health import health_check
@@ -11,7 +12,7 @@ urlpatterns = [
     # path('django-admin/', admin.site.urls),
     path('api/ecommerce/', include('apps.ecommerce.api.urls')),
     path('api/health/', health_check, name='health_check'),
-    path('i18n/', include('django.conf.urls.i18n')),
+    path('i18n/setlang/', set_language, name='set_language'),
 ]
 if settings.DEBUG:
     urlpatterns += [

@@ -8,8 +8,10 @@ fi
 worker=${WORKER:-1}
 port=${DJANGO_PORT:-8080}
 
+python -m pip install --upgrade pip
 python scripts/collect_static.py
 python manage.py migrate
+python manage.py compilemessages -l en -l vi
 # python manage.py loaddata scripts/fixtures/*
 
 echo "PRODUCTION is: $PRODUCTION"

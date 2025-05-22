@@ -17,13 +17,12 @@ class EcommerceAdminSite(AdminSite):
     site_title = "E-commerce Admin"
     index_title = "E-commerce Admin Portal"
 
-    # Customize the "View site" URL
     def each_context(self, request):
         context = super().each_context(request)
-        # Set the site_url (View site link)
         context["site_url"] = getattr(settings, "ADMIN_SITE_URL", "/ecommerce/")
-        # Add language switching URL
         context["i18n_urls"] = True
+        context["available_languages"] = settings.LANGUAGES
+        context["current_language"] = request.LANGUAGE_CODE
         return context
 
     def get_urls(self):
