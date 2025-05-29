@@ -60,6 +60,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'middleware.real_ip.RealIPMiddleware',
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -204,8 +205,18 @@ LOGGING = {
         "level": "WARNING",
     },
     "loggers": {
-        "django": {
+        "middleware.real_ip": {
             "handlers": ["console"],
+            "level": "INFO",
+            "propagate": False,
+        },
+        "django.server": {
+            "handlers": [],
+            "level": "INFO",
+            "propagate": False,
+        },
+        "django.request": {
+            "handlers": [],
             "level": "INFO",
             "propagate": False,
         },
