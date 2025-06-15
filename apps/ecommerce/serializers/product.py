@@ -19,6 +19,7 @@ class ProductInfo(serializers.Serializer):
     total_sold = serializers.IntegerField()
     excerpt = serializers.CharField()
     content = serializers.CharField()
+    phone_number = serializers.CharField(allow_null=True, required=False)
     category = ProductCategoryInfo()
     created_at = serializers.DateTimeField()
     updated_at = serializers.DateTimeField()
@@ -57,6 +58,7 @@ class ProductCreateRequest(serializers.Serializer):
     image = serializers.ImageField(required=False)
     excerpt = serializers.CharField(allow_blank=True, required=False, default="")
     content = serializers.CharField(allow_blank=True, required=False, default="")
+    phone_number = serializers.CharField(max_length=20, required=False, allow_blank=True, allow_null=True)
     category_id = serializers.UUIDField(required=False, allow_null=True)
 
     def validate_price(self, value):

@@ -20,3 +20,9 @@ msgstr ""
 
 msgid "The username or password is incorrect."
 msgstr ""
+
+msgid "Phone Number"
+msgstr "Phone Number"
+
+msgid "Contact phone number for this product"
+msgstr "Contact phone number for this product"

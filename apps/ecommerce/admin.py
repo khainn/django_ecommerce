@@ -50,12 +50,12 @@ class ProductAdminForm(forms.ModelForm):
         }
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ("id", "name", "price", "quantity_in_stock", "total_sold", "category", "created_at")
+    list_display = ("id", "name", "price", "quantity_in_stock", "total_sold", "category", "phone_number", "created_at")
     list_filter = ("category", "created_at")
-    search_fields = ("name", "description")
+    search_fields = ("name", "description", "phone_number")
     readonly_fields = ("image_preview",)
     fields = ("name", "description", "price", "quantity_in_stock", "category",
-              "image_preview", "image", "excerpt", "content")
+              "image_preview", "image", "excerpt", "content", "phone_number")
     form = ProductAdminForm
 
     def image_preview(self, obj):

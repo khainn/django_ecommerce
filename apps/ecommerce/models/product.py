@@ -53,6 +53,13 @@ class Product(BaseModel):
     total_sold = models.IntegerField(default=0, verbose_name=_("Total Sold"))
     excerpt = models.TextField(blank=True, verbose_name=_("Excerpt"))
     content = models.TextField(blank=True, verbose_name=_("Content"))
+    phone_number = models.CharField(
+        max_length=20,
+        blank=True,
+        null=True,
+        verbose_name=_("Phone Number"),
+        help_text=_("Contact phone number for this product")
+    )
 
     # Foreign keys
     category = models.ForeignKey(

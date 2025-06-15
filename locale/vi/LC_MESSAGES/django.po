@@ -578,3 +578,12 @@ msgstr "Ảnh hiện tại"
 msgid "No Image"
 msgstr "Chưa có ảnh"
 
+msgid "The username or password is incorrect."
+msgstr ""
+
+msgid "Phone Number"
+msgstr "Số điện thoại"
+
+msgid "Contact phone number for this product"
+msgstr "Số điện thoại liên hệ cho sản phẩm này"
+
