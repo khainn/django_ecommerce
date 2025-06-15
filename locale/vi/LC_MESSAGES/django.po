@@ -587,3 +587,18 @@ msgstr "Số điện thoại"
 msgid "Contact phone number for this product"
 msgstr "Số điện thoại liên hệ cho sản phẩm này"
 
+msgid "pending"
+msgstr "Đang chờ xử lý"
+
+msgid "processing"
+msgstr "Đang xử lý"
+
+msgid "shipped"
+msgstr "Đã gửi hàng"
+
+msgid "delivered"
+msgstr "Đã giao hàng"
+
+msgid "cancelled"
+msgstr "Đã hủy"
+

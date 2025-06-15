@@ -26,3 +26,18 @@ msgstr "Phone Number"
 
 msgid "Contact phone number for this product"
 msgstr "Contact phone number for this product"
+
+msgid "pending"
+msgstr "Pending"
+
+msgid "processing"
+msgstr "Processing"
+
+msgid "shipped"
+msgstr "Shipped"
+
+msgid "delivered"
+msgstr "Delivered"
+
+msgid "cancelled"
+msgstr "Cancelled"
