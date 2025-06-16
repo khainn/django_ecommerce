@@ -75,10 +75,44 @@ class CartAdmin(admin.ModelAdmin):
     inlines = [CartItemInline]
 
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ("id", "customer_name", "customer_email", "status", "total_price", "created_at")
+    list_display = (
+        "id", 
+        "customer_name", 
+        "customer_email", 
+        "status", 
+        "total_price", 
+        "created_at"
+    )
     list_filter = ("status", "created_at")
-    search_fields = ("customer_name", "customer_phone", "customer_email", "customer_address", "notes")
-    readonly_fields = ("cart", "total_price", "created_at")
+    search_fields = (
+        "customer_name", 
+        "customer_phone", 
+        "customer_email", 
+        "customer_address", 
+        "notes"
+    )
+    readonly_fields = (
+        "customer_name", 
+        "customer_phone", 
+        "customer_email", 
+        "customer_address", 
+        "notes", 
+        "cart_items_display", 
+        "total_price", 
+        "created_at"
+    )
+    exclude = ("cart",)
+    
+    def cart_items_display(self, obj):
+        """Display cart items in a readable format"""
+        if obj.cart and obj.cart.items.exists():
+            items = []
+            for item in obj.cart.items.all():
+                items.append(f"• {item.product.name} (x{item.quantity})")
+            return mark_safe("<br>".join(items))
+        return _("No items in cart")
+    
+    cart_items_display.short_description = _("Cart Items")
 
 class BlogImageInline(admin.TabularInline):
     model = BlogImage

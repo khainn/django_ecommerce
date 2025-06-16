@@ -601,3 +601,6 @@ msgstr "Đã giao hàng"
 
 msgid "cancelled"
 msgstr "Đã hủy"
+
+msgid "No items in cart"
+msgstr "Không có sản phẩm trong giỏ"
