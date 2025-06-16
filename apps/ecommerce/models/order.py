@@ -16,7 +16,7 @@ class Order(BaseModel):
     total_price = models.IntegerField(verbose_name=_("Total Price"))
     status = models.CharField(
         max_length=20,
-        choices=[(status.value, status.value) for status in OrderStatus],
+        choices=[(status.value, _(status.value)) for status in OrderStatus],
         default=OrderStatus.PENDING.value,
         verbose_name=_("Status")
     )

@@ -601,4 +601,3 @@ msgstr "Đã giao hàng"
 
 msgid "cancelled"
 msgstr "Đã hủy"
-
