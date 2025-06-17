@@ -1,7 +1,3 @@
-"""
-Order admin configurations.
-"""
-
 from django.utils.translation import gettext_lazy as _
 from django.utils.safestring import mark_safe
 from django.utils.html import escape
@@ -22,7 +18,6 @@ class OrderAdmin(BaseModelAdmin):
     list_per_page = 30
     
     def get_queryset(self, request):
-        """Optimize queryset with prefetch_related for cart items."""
         return super().get_queryset(request).prefetch_related(
             'cart__items__product', 'cart__items__product__category'
         )

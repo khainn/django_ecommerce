@@ -1,7 +1,3 @@
-"""
-Banner admin configurations.
-"""
-
 from django import forms
 
 from apps.ecommerce.models import Banner

@@ -11,27 +11,16 @@ from .common import BaseModelAdmin
 
 
 class ProductCategoryAdmin(BaseModelAdmin):
-    """Admin configuration for ProductCategory model."""
-    
-    list_display = ("short_id", "name", "description", "product_count", "created_at", "updated_at")
+    list_display = ("short_id", "name", "description", "created_at", "updated_at")
     search_fields = ("name", "description")
     list_filter = ("created_at", "updated_at")
     ordering = ("name",)
     
-    def product_count(self, obj):
-        """Display the number of products in this category."""
-        return obj.products.count()
-    
-    product_count.short_description = _("Products Count")
-    
     def get_queryset(self, request):
-        """Optimize queryset with prefetch_related for product count."""
-        return super().get_queryset(request).prefetch_related('products')
+        return super().get_queryset(request)
 
 
 class ProductAdminForm(forms.ModelForm):
-    """Custom form for Product admin."""
-    
     class Meta:
         model = Product
         fields = "__all__"

@@ -65,19 +65,8 @@ ecommerce_admin = EcommerceAdminSite(name="ecommerce_admin")
 
 
 class ShortUUIDMixin:
-    """Mixin to display shortened UUID in admin."""
-    
     def short_id(self, obj):
-        """Display shortened UUID (first 8 characters) with full UUID in tooltip."""
-        if obj.id:
-            short_uuid = str(obj.id)[:8]
-            full_uuid = str(obj.id)
-            return mark_safe(
-                f'<span title="{full_uuid}" style="font-family: monospace; '
-                f'background-color: #f8f9fa; padding: 2px 6px; border-radius: 3px; '
-                f'border: 1px solid #dee2e6; cursor: help;">{short_uuid}</span>'
-            )
-        return "-"
+        return str(obj.id)[:8] if obj.id else "-"
     
     short_id.short_description = _("ID")
     short_id.admin_order_field = 'id'
