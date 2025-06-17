@@ -41,3 +41,9 @@ msgstr "Delivered"
 
 msgid "cancelled"
 msgstr "Cancelled"
+
+msgid "Products Count"
+msgstr "Products Count"
+
+msgid "ID"
+msgstr "ID"

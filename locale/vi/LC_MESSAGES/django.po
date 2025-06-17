@@ -604,3 +604,9 @@ msgstr "Đã hủy"
 
 msgid "No items in cart"
 msgstr "Không có sản phẩm trong giỏ"
+
+msgid "Products Count"
+msgstr "Số sản phẩm"
+
+msgid "ID"
+msgstr "ID"
