@@ -4,6 +4,7 @@ from django.contrib import admin
 from apps.ecommerce.models import Blog, BlogImage
 from apps.ecommerce.widgets import NoCurrentFileClearableFileInput
 from .common import BaseModelAdmin, ImagePreviewMixin
+from django.utils.translation import gettext_lazy as _
 
 
 class BlogImageInline(admin.TabularInline, ImagePreviewMixin):
@@ -38,3 +39,25 @@ class BlogAdmin(BaseModelAdmin):
 
     def get_queryset(self, request):
         return super().get_queryset(request)
+
+
+class BlogImageAdminForm(forms.ModelForm):
+    class Meta:
+        model = BlogImage
+        fields = "__all__"
+        widgets = {
+            'image': NoCurrentFileClearableFileInput,
+        }
+
+
+class BlogImageAdmin(BaseModelAdmin):
+    list_display = ("short_id", "blog", "caption", "display_order", "created_at")
+    list_filter = ("blog", "created_at")
+    search_fields = ("blog__title", "caption")
+    readonly_fields = ("image_preview",)
+    fields = ("blog", "image_preview", "image", "caption", "display_order")
+    form = BlogImageAdminForm
+    list_select_related = ("blog",)
+
+    def get_queryset(self, request):
+        return super().get_queryset(request).select_related('blog')

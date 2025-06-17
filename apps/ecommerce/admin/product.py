@@ -1,7 +1,3 @@
-"""
-Product and ProductCategory admin configurations.
-"""
-
 from django import forms
 from django.utils.translation import gettext_lazy as _
 
@@ -35,8 +31,6 @@ class ProductAdminForm(forms.ModelForm):
 
 
 class ProductAdmin(BaseModelAdmin):
-    """Admin configuration for Product model."""
-    
     list_display = ("short_id", "name", "price", "quantity_in_stock", "total_sold", "category", "phone_number", "created_at")
     list_filter = ("category", "created_at")
     search_fields = ("name", "description", "phone_number")

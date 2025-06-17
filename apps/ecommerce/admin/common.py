@@ -1,7 +1,3 @@
-"""
-Common admin configurations, mixins, and custom admin site.
-"""
-
 from django.conf import settings
 from django.contrib import admin
 from django.contrib.admin import AdminSite

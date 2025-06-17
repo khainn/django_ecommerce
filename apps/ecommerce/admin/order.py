@@ -7,13 +7,11 @@ from .common import BaseModelAdmin, CART_TABLE_STYLES
 
 
 class OrderAdmin(BaseModelAdmin):
-    """Admin configuration for Order model."""
-    
-    list_display = ("short_id", "customer_name", "customer_email", "status", "total_price_display", "created_at")
+    list_display = ("short_id", "customer_name", "customer_email", "status", "created_at")
     list_filter = ("status", "created_at")
     search_fields = ("customer_name", "customer_phone", "customer_email", "customer_address", "notes")
     readonly_fields = ("customer_name", "customer_phone", "customer_email", "customer_address", 
-                      "notes", "cart_items_display", "total_price_display", "created_at")
+                      "notes", "cart_items_display", "created_at")
     exclude = ("cart", "total_price")
     list_per_page = 30
     
@@ -23,14 +21,12 @@ class OrderAdmin(BaseModelAdmin):
         )
     
     def total_price_display(self, obj):
-        """Display formatted total price."""
         return f"{obj.total_price:,} ₫" if obj.total_price else "0 ₫"
     
     total_price_display.short_description = _("Total Price")
     total_price_display.admin_order_field = 'total_price'
     
     def cart_items_display(self, obj):
-        """Display cart items in a table format with improved styling and security."""
         if not obj.cart or not obj.cart.items.exists():
             return _("No items in cart")
         
@@ -69,7 +65,7 @@ class OrderAdmin(BaseModelAdmin):
         total_formatted = f"{obj.total_price:,} ₫"
         html_parts.extend([
             f'<tr style="{CART_TABLE_STYLES["total_row"]}">',
-            f'<td style="{CART_TABLE_STYLES["cell"]}" colspan="3">{escape(_("Total"))}</td>',
+            f'<td style="{CART_TABLE_STYLES["cell"]}" colspan="3">{escape(_("Total Price"))}</td>',
             f'<td style="{CART_TABLE_STYLES["total_cell"]}">{total_formatted}</td>',
             '</tr>',
             '</tbody>',
